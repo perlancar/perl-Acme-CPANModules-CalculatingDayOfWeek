@@ -41,6 +41,28 @@ behemoth. But it provides a bunch of other functionalities as well.
 
 _
         },
+        {
+            module => 'Date::Calc',
+            bench_fcall_template => 'Date::Calc::Day_of_Week(<year>, <month>, <day>)',
+            description => <<'_',
+
+<pm:Date::Calc> is a nice compromise when you want something that is more
+lightweight and does not need to be as accurate as <pm:DateTime>.
+
+_
+        },
+        {
+            module => 'Time::Moment',
+            bench_code_template => 'Time::Moment->new(year => <year>, month => <month>, day => <day>)->day_of_week',
+            description => <<'_',
+
+<pm:Time::Moment> is also a nice alternative to <pm:DateTime>. Although it's not
+as featureful as DateTime, it is significantly more lightweight. Compared to
+<pm:Date::Calc>, Time::Moment's API is closer to DateTime's. Being an XS module,
+it's also faster.
+
+_
+        },
     ],
 
     bench_datasets => [
